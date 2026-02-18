@@ -11499,7 +11499,7 @@ StageMorph.prototype.blockTemplates = function (
     category = 'motion',
     all = false // include hidden blocks
 ) {
-    var blocks = [], myself = this, varNames, txt;
+    var blocks = [], myself = this, varNames; // txt;
 
     function block(selector) {
         if (myself.hiddenPrimitives[selector] && !all) {
@@ -11564,6 +11564,8 @@ StageMorph.prototype.blockTemplates = function (
         }
     });
 
+/* // commented out to support sprite-less microworlds in v12
+
     if (category === 'motion') {
 
         txt = new TextMorph(localize('Stage selected:\nno motion primitives'));
@@ -11572,7 +11574,10 @@ StageMorph.prototype.blockTemplates = function (
         txt.hideWithCategory = true; // hide txt when category names are hidden
         blocks.push(txt);
 
-    } else if (category === 'looks') {
+    } else
+*/
+
+    if (category === 'looks') {
 
         blocks.push(block('doSwitchToCostume'));
         blocks.push(block('doWearNextCostume'));

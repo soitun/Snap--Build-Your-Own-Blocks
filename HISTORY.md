@@ -64,6 +64,7 @@
         * rearranged IDE settings menu items into "looks" submenu
         * sprite icons no longer blur when the sprite size is reduced or the zoom level increases
         * resizing the browser / window in presentation ("app") mode scales the stage smoothly
+        * removed "stage selected, no motion primitives" text from the palette to support sprite-less microworlds
     * meta-programming
         * silently handle missing variable references in user-scripted dropdowns and expansion subslots by returning an empty list instead
         * removed "static" tag from the block-attribute getter
@@ -100,6 +101,7 @@
 * gui: added "Blocks only" setting to the "looks" menu - hides the stage and all sprite editing panes for custom "functions-first" microworlds
 * scenes, gui: made "hideSprites" a separate scene setting
 * store: persist "blocks only" setting in the project
+* objects: removed "stage selected, no motion primitives" text from the palette to support sprite-less microworlds
 
 ### 2026-02-13
 * morphic: tweaked GrayPaletteMorph to allow easer selection of pure black / white colors
