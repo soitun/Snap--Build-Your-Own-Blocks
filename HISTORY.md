@@ -102,6 +102,7 @@
 ### 2026-02-24
 * extensions: new "cst_shrink-wrap(cst)" extension
 * objects: speed-up for generated costumes, but now need to explicitly shrink-wrap them
+* updated the neural networks library with faster previews for ADTs
 
 ### 2026-02-21
 * morphic, blocks, byob: new "360° angles" dial widget for mathematical bearings (zero is East, counterclockwise) instead of compass bearings

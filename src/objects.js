@@ -96,7 +96,7 @@ CustomBlockDefinition, exportEmbroidery, CustomHatBlockMorph, HandMorph*/
 
 /*jshint esversion: 11*/
 
-modules.objects = '2026-February-12';
+modules.objects = '2026-February-24';
 
 var SpriteMorph;
 var StageMorph;
@@ -7592,6 +7592,7 @@ SpriteMorph.prototype.drawPath = function (pointList, filled, closed) {
 
 SpriteMorph.prototype.drawLineOn = function (target, start, dest) {
     var mode = this.blendingMode(),
+        stage,
         targetCostume,
         p1, p2,
         line,
@@ -7607,8 +7608,9 @@ SpriteMorph.prototype.drawLineOn = function (target, start, dest) {
     if (target.costume) {
         targetCostume = target.surface();
     } else if (mode === 'source-over') {
+        stage = this.parentThatIsA(StageMorph);
         target.doSwitchToCostume(new Costume(
-            newCanvas(new Point(1, 1), true),
+            newCanvas(stage ? stage.dimensions : new Point(480, 360), true),
             this.newCostumeName(localize('Costume'))
         ));
         targetCostume = target.surface();
@@ -7655,7 +7657,7 @@ SpriteMorph.prototype.drawLineOn = function (target, start, dest) {
     ctx.stroke();
 
     // shrink-wrap where applicable
-    if (contains(['source-over', 'destination-out'], mode)) {
+    if ('destination-out' === mode) { // 'erase'
         targetCostume.shrinkWrap();
     }
 
@@ -7670,6 +7672,7 @@ SpriteMorph.prototype.drawPathOn = function (
     filled = false
 ) {
     var mode = this.blendingMode(),
+        stage,
         targetCostume,
         points,
         line,
@@ -7683,8 +7686,9 @@ SpriteMorph.prototype.drawPathOn = function (
     if (target.costume) {
         targetCostume = target.surface();
     } else if (mode === 'source-over') {
+        stage = this.parentThatIsA(StageMorph);
         target.doSwitchToCostume(new Costume(
-            newCanvas(new Point(1, 1), true),
+            newCanvas(stage ? stage.dimensions : new Point(480, 360), true),
             this.newCostumeName(localize('Costume'))
         ));
         targetCostume = target.surface();
@@ -7742,7 +7746,7 @@ SpriteMorph.prototype.drawPathOn = function (
     ctx.restore();
 
     // shrink-wrap where applicable
-    if (contains(['source-over', 'destination-out'], mode)) {
+    if ('destination-out' === mode) { // 'erase'
         targetCostume.shrinkWrap();
     }
 
