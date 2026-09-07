@@ -4,6 +4,7 @@
 
 ### 2026-09-07
 * extensions: added 'scn_label(txt)' extension for programmatically setting the label of a tutorial window"
+* added "set label to" command to the tutorials library
 
 ## 12.1.0:
 * **New Features:**
