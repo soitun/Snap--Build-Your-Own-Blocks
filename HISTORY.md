@@ -2,6 +2,9 @@
 
 ## in development:
 
+### 2026-09-07
+* extensions: added 'scn_label(txt)' extension for programmatically setting the label of a tutorial window"
+
 ## 12.1.0:
 * **New Features:**
     * first-class processes - new built-in data type
